@@ -15,7 +15,7 @@
   <body>
     <!-- Javascript in HTML -->
     <div id="root"></div>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       const rootElement = document.getElementById("root");
       const element = document.createElement("h1");
       element.textContent = "Hello World!";
@@ -23,21 +23,32 @@
       rootElement.appendChild(element);
     </script>
 
-    <!-- React in HTML -->
-    <div id="root1"></div>
+    React in HTML -->
+    <!-- <div id="root1"></div>
     <script type="module">
       const rootEl = document.getElementById("root1");
       const elementType = "h1";
       const elementProps = {className:"greeting", children:"Hello World!"};
       const reactElement = React.createElement(elementType,elementProps);
       ReactDOM.render(reactElement,rootEl);
-    </script>
+    </script> -->
 
     <!-- Jsx in HTML -->
     <div id="root2"></div>
     <script type="text/babel">
-      const headingElement = <h1 className="greeting">Hello World!</h1>
-      ReactDOM.render(headingElement,document.getElementById("root2"));
+      const Welcome = (props)=>{ 
+        const {name,greeting} = props
+        return (<h1 className="greeting">{greeting}, {name}</h1>)
+      }
+      const Greeting = ()=>{
+              return (
+                <div>
+        <Welcome name="Ganesh"  greeting="Hello" />
+        <Welcome name="Ram"  greeting="Hi" />
+        </div>)
+        }
+      ReactDOM.render(<Greeting/>, 
+        document.getElementById("root2"));
     </script>
   </body>
 </html>
